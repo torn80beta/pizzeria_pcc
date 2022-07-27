@@ -15,3 +15,9 @@ def pizzas(request):
     context = {'pizzas': pizzas}
     return render(request, 'pizzas/pizzas.html', context)
 
+def pizza(request, pizza_id):
+    """Вывод пиццы со всеми топингами"""
+    pizza = Pizza.objects.get(id=pizza_id)
+    entries = pizza.topping_set.order_by('name')
+    context = {'pizza': pizza, 'entries': entries}
+    return render(request, 'pizzas/pizza.html', context)

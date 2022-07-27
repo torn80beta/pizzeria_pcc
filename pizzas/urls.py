@@ -8,4 +8,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     # Pizzas page
     path('pizzas/', views.pizzas, name='pizzas'),
+    # Pizza info page
+    path('pizzas/<int:pizza_id>/', views.pizza, name='pizza'),
 ]
